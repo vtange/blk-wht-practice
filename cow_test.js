@@ -1,4 +1,7 @@
+mocha.setup('bdd');
 var expect = chai.expect;
+
+console.log(chai);
 
 describe("Cow", function() {
   describe("constructor", function() {
@@ -26,3 +29,5 @@ describe("Cow", function() {
     });
   });
 });
+
+mocha.run();
