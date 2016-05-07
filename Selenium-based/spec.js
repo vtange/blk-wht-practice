@@ -10,8 +10,9 @@ test.describe('calculating weights', function() {
  
     driver.get("https://decohere.herokuapp.com/planets");
  
-    var weight = driver.isElementPresent(selenium.By.id('wt'));
-    assert.equal(weight, true, "Weight entry not possible");
+    driver.isElementPresent(selenium.By.id('wt')).then(function(weight) {
+      assert.equal(weight, true, "Weight entry not possible");
+    });
  
     driver.quit();
   });
