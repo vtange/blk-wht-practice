@@ -2,6 +2,7 @@ var assert = require('assert');
 var selenium = require('selenium-webdriver');
 var test = require('selenium-webdriver/testing');
 var driver;
+var planetPage;
 
 var PlanetPage = require('./main-page.js');
 const timeOut = 15000;
@@ -28,7 +29,7 @@ test.afterEach(function() {
   driver = new selenium.Builder().
       withCapabilities(selenium.Capabilities.firefox()).
       build();
-  var planetPage = new PlanetPage(driver);
+  planetPage = new PlanetPage(driver);
   planetPage.view();
 });
 
