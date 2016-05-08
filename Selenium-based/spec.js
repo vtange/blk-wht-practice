@@ -43,15 +43,20 @@ test.afterEach(function() {
 });
 
 test.describe('calculating weights', function() {
-  test.it('calculates weights', function() {
-    driver.isElementPresent(selenium.By.id('wt')).then(function(weight) {
-      assert.equal(weight, true, "Weight entry not possible");
-    });
-  });
+
+	//
+	test.it('calculates weights', function() {
+	  var planetPage = new PlanetPage(driver);
+	  planetPage.weightEntryPresent().then(function(weight) {
+		assert.equal(weight, true, "Weight entry not possible");
+	  });
+	});
  
-  test.it('provides no default weight', function() {
-    driver.findElement(selenium.By.id('wt')).getText().then(function(weight) {
-      assert.equal(weight, '', "Weight started with values");
-    });
-  });
+	//
+	test.it('provides no default weight', function() {
+	  var planetPage = new PlanetPage(driver);
+	  planetPage.weightEntryBlank().then(function(weight) {
+		assert.equal(weight, '', "Weight started with values");
+	  });
+	});
 });
