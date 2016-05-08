@@ -12,19 +12,11 @@ PlanetPage.prototype.view = function() {
 };
 
 PlanetPage.prototype.weightEntryPresent = function() {
-  var d = webdriver.promise.defer();
-  this.driver.isElementPresent(this.weightField).then(function(weight) {
-    d.fulfill(weight);
-  });
-  return d.promise;
+  return this.driver.isElementPresent(this.weightField);
 };
 
 PlanetPage.prototype.weightEntryBlank = function() {
-  var d = webdriver.promise.defer();
-  this.driver.findElement(this.weightField).getText().then(function(text) {
-    d.fulfill(text);
-  });
-  return d.promise;
+  return this.driver.findElement(this.weightField).getText();
 };
 
 module.exports = PlanetPage;
