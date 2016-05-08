@@ -2,7 +2,8 @@ var assert = require('assert');
 var selenium = require('selenium-webdriver');
 var test = require('selenium-webdriver/testing');
 var driver;
- 
+
+var PlanetPage = require('./main-page.js');
 const timeOut = 15000;
  
 /*
@@ -27,10 +28,11 @@ test.afterEach(function() {
   driver = new selenium.Builder().
       withCapabilities(selenium.Capabilities.firefox()).
       build();
-  driver.get("https://decohere.herokuapp.com/planets");
+  var planetPage = new PlanetPage(driver);
+  planetPage.view();
 });
 
-//Close Firefox and get website before test
+//Close Firefox after test
 test.after(function() {
   driver.quit();
 });
