@@ -3,6 +3,7 @@ var webdriver = require('selenium-webdriver');
 PlanetPage = function PlanetPage(driver) {
   this.driver = driver;
   this.url = "https://decohere.herokuapp.com/planets";
+  this.weightField = webdriver.By.id('wt');
 };
  
 PlanetPage.prototype.view = function() {
@@ -12,7 +13,7 @@ PlanetPage.prototype.view = function() {
 
 PlanetPage.prototype.weightEntryPresent = function() {
   var d = webdriver.promise.defer();
-  this.driver.isElementPresent(webdriver.By.id('wt')).then(function(weight) {
+  this.driver.isElementPresent(this.weightField).then(function(weight) {
     d.fulfill(weight);
   });
   return d.promise;
@@ -20,7 +21,7 @@ PlanetPage.prototype.weightEntryPresent = function() {
 
 PlanetPage.prototype.weightEntryBlank = function() {
   var d = webdriver.promise.defer();
-  this.driver.findElement(webdriver.By.id('wt')).getText().then(function(text) {
+  this.driver.findElement(this.weightField).getText().then(function(text) {
     d.fulfill(text);
   });
   return d.promise;
