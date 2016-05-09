@@ -47,7 +47,6 @@ test.describe('calculating weights', function() {
 
 	//
 	test.it('calculates weights', function() {
-	  var planetPage = new PlanetPage(driver);
 	  planetPage.weightEntryPresent().then(function(weight) {
 		assert.equal(weight, true, "Weight entry not possible");
 	  });
@@ -55,7 +54,6 @@ test.describe('calculating weights', function() {
  
 	//
 	test.it('provides no default weight', function() {
-	  var planetPage = new PlanetPage(driver);
 	  planetPage.weightEntryBlank().then(function(weight) {
 		assert.equal(weight, '', "Weight started with values");
 	  });
