@@ -1,0 +1,17 @@
+{
+  "name": "selenium-based",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "chromedriver": "^2.21.2",
+    "jasmine": "^2.4.1",
+    "selenium-webdriver": "^2.53.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+	  "test": "jasmine"
+  },
+  "author": "",
+  "license": "ISC"
+}
