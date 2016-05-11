@@ -1,6 +1,7 @@
 var assert = require('assert');
 var selenium = require('selenium-webdriver');
 var test = require('selenium-webdriver/testing');
+//custom-Firefox-location driver
 var firefox = require('selenium-webdriver/firefox');
 var binary = new firefox.Binary('C:/Portable/FirefoxPortable/FirefoxPortable.exe');
 var options = new firefox.Options().setBinary(binary);

@@ -5,7 +5,7 @@
   "main": "spec.js",
   "scripts": {
     "test-ff": "mocha firefox.js",
-    "test-phantom": "node phantom.js"
+    "test-phantom": "mocha phantom.js"
   },
   "author": "",
   "license": "ISC",

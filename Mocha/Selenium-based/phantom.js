@@ -1,15 +1,43 @@
-var path = require('path');
-var childProcess = require('child_process');
-var phantomjs = require('phantomjs-prebuilt');
-var binPath = phantomjs.path;
- 
-var childArgs = [
-  path.join(__dirname, 'phantom-test.js'),
-  'http://www.vtange.net'
-];
+var assert = require('assert');
+var selenium = require('selenium-webdriver');
+var test = require('selenium-webdriver/testing');
+var phantomjs = require('phantomjs-prebuilt').path;
+//build custom phantomJS driver
+var driver = new selenium.Builder().
+       withCapabilities(selenium.Capabilities.phantomjs()).
+       build();
+console.log(driver);
 
-//runs phantomjs loadspeed.js http://www.vtange.net
-childProcess.execFile(binPath, childArgs, function(err, stdout, stderr) {
-  // handle results 
-	console.log(stdout);
+
+var planetPage;
+var PlanetPage = require('./main-page.js');
+const timeOut = 15000;
+
+//Open Phantom and get website before test
+ test.before(function() {
+  this.timeout(timeOut);
+  planetPage = new PlanetPage(driver);
+  planetPage.view();
+});
+
+//Close Phantom after test
+test.after(function() {
+  driver.quit();
+});
+
+test.describe('calculating weights', function() {
+
+	//
+	test.it('calculates weights', function() {
+	  planetPage.weightEntryPresent().then(function(weight) {
+		assert.equal(weight, true, "Weight entry not possible");
+	  });
+	});
+ 
+	//
+	test.it('provides no default weight', function() {
+	  planetPage.weightEntryBlank().then(function(weight) {
+		assert.equal(weight, '', "Weight started with values");
+	  });
+	});
 });
