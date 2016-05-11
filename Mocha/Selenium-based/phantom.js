@@ -1,10 +1,13 @@
 var assert = require('assert');
 var selenium = require('selenium-webdriver');
 var test = require('selenium-webdriver/testing');
-var phantomjs = require('phantomjs-prebuilt').path;
+//setup custom phantomJS driver
+var phantomjs_exe = require('phantomjs-prebuilt').path;
+var customPhantom = selenium.Capabilities.phantomjs();
+customPhantom.set("phantomjs.binary.path", phantomjs_exe);
 //build custom phantomJS driver
 var driver = new selenium.Builder().
-       withCapabilities(selenium.Capabilities.phantomjs()).
+       withCapabilities(customPhantom).
        build();
 console.log(driver);
 
