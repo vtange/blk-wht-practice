@@ -29,9 +29,6 @@ test.afterEach(function() {
 //Open Firefox and get website before test
  test.before(function() {
   this.timeout(timeOut);
-  driver = new selenium.Builder().
-      withCapabilities(selenium.Capabilities.firefox()).
-      build();
   planetPage = new PlanetPage(driver);
   planetPage.view();
 });
