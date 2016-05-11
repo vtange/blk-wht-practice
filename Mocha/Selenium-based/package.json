@@ -5,7 +5,7 @@
   "main": "spec.js",
   "scripts": {
     "test": "mocha spec.js",
-    "try": "node try.js"
+    "phantom": "node phantom.js"
   },
   "author": "",
   "license": "ISC",

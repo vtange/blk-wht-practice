@@ -6,9 +6,10 @@ var binPath = phantomjs.path;
 var childArgs = [
   path.join(__dirname, 'loadspeed.js'),
   'http://www.vtange.net'
-]
- 
+];
+
+//runs phantomjs loadspeed.js http://www.vtange.net
 childProcess.execFile(binPath, childArgs, function(err, stdout, stderr) {
   // handle results 
 	console.log(stdout);
-})
+});
