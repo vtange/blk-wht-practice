@@ -9,8 +9,6 @@ customPhantom.set("phantomjs.binary.path", phantomjs_exe);
 var driver = new selenium.Builder().
        withCapabilities(customPhantom).
        build();
-console.log(driver);
-
 
 var planetPage;
 var PlanetPage = require('./main-page.js');
