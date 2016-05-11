@@ -4,7 +4,7 @@ var phantomjs = require('phantomjs-prebuilt');
 var binPath = phantomjs.path;
  
 var childArgs = [
-  path.join(__dirname, 'loadspeed.js'),
+  path.join(__dirname, 'phantom-test.js'),
   'http://www.vtange.net'
 ];
 
