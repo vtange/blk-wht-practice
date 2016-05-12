@@ -1,5 +1,5 @@
-//get browser
-var browser = require('./firefox.js');
+///get browser
+var browser = require('./'+process.env.BROWSER+'.js');
 
 //test script
 var assert = require('assert');
